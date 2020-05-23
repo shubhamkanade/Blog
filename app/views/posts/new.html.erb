@@ -1,0 +1,16 @@
+<% if flash[:notice] %>
+  <div class="notification is-primary global-notification">
+    <p class="notice"><%= notice %></p>
+  </div>
+<% end %>
+<%= flash.now[:success] %>
+<%= form_with url: posts_path    do |form| %>
+    <div class="container">
+        <h1>Create Post</h1>
+        <hr>
+        <%= form.text_field :title ,placeholder: "Enter Title", required: "required"%>
+        <%= form.text_area :description ,class: "description",placeholder: "Enter Description", required: "required"%>
+        <hr>
+        <%= form.submit :class => "registerbtn",:value => "Save"%>
+    </div>
+<% end %>

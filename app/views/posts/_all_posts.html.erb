@@ -1,0 +1,34 @@
+<% if flash.now[:success] %>
+    <div class="alert alert-success" role="alert">
+        <%= flash.now[:success] %>
+    </div>
+<% end %>
+<div id="updated">
+    <% @posts.each do |post| %>
+        <% user = find_user_by_id post["user_id"].to_s %>
+        <div class="card">
+            <div class="postcard-title"><%= post['title'].capitalize %></div>
+            <% if find_current_user["user_email"] == user['email'] %>
+                <div class="postcard-del">
+                    <%= link_to edit_post_path(post['id']) do %>
+                        <i class="fa fa-pencil-square-o" id = "edit"></i>
+                    <% end %>
+                    <%= link_to post_path(post['id']),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' } do
+                    %>
+                    <i class="fa fa-trash" id = "delete" aria-hidden="true"></i>
+                    <% end %>
+                </div>
+            <% end %>
+            <div class="postcard-desc"> <%=  post['description'] %></div>
+            <div class="postcard-claps">
+            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+            <%= get_clap_count(post['id'],"Post")%>
+                <%= link_to "View", post_path(post['id']), class: 'btn postcard-btn' %>
+            </div>
+            <div class = "name"><h3>- <%= user["email"] %></h3></div>
+            <div class = "name"><%= post["created_at"].to_date %></div>
+        </div>
+    <% end %>
+</div>

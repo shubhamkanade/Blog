@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>  
+    <% if session[:current_user].present? %>
+      <div class="about-section">
+        <h2>Blogs</h2>
+      </div>
+      <div class="topnav">
+        <%= link_to "Home", posts_path, class: 'btn postcard-btn' %>
+        <%= link_to "New", new_post_path, class: 'btn postcard-btn' %>
+        <%= link_to "Logout", session_logout_path, method: :post, class: 'btn postcard-btn' %>
+      </div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

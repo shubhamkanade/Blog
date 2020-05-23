@@ -1,0 +1,17 @@
+<% if flash[:notice] %>
+  <div class="notification is-primary global-notification">
+    <p class="notice"><%= notice %></p>
+  </div>
+<% end %>
+<%= flash.now[:success] %>
+<%= form_with url: post_path(), method: :patch do |form| %>
+    <div class="container">
+        <h1>Edit Post</h1>
+        <hr>
+        <%= form.text_field :title ,value: @post['title'], required: "required"%>
+        <%= form.text_area :description ,value: @post['description'], class: "description", required: "required"%>
+        <%= form.hidden_field :user_id, value: @post['user_id'] %>
+        <hr>
+        <%= form.submit "Update", class: "registerbtn"%>
+    </div>
+<% end %>

@@ -1,0 +1,15 @@
+current directory: /Users/shubhamkanade/internal_blog/blog/path/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/shubhamkanade/.rvm/rubies/ruby-2.6.3/bin/ruby -I /Users/shubhamkanade/.rvm/rubies/ruby-2.6.3/lib/ruby/site_ruby/2.6.0 -r ./siteconf20200311-3182-1av4iyg.rb extconf.rb
+creating Makefile
+
+current directory: /Users/shubhamkanade/internal_blog/blog/path/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Users/shubhamkanade/internal_blog/blog/path/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/shubhamkanade/internal_blog/blog/path/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 cruby.bundle ./.gem.20200311-3182-1yrv44n/skiptrace/internal

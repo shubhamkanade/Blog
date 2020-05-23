@@ -1,0 +1,8 @@
+version: '3.1'
+services:
+  blog:
+    image: gitlab.techverito.com:4567/internal/blog:${BUILD_NUMBER}
+    ports:
+      - "3002:3000"
+    environment:
+        - RACK_ENV=test

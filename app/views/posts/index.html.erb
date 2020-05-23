@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="post-container">
+    <%= form_with url: posts_path , method: :get , remote: true  do |form| %>
+      <div class="search-bar">
+        <%= form.text_field :title ,placeholder: "Search post"%>
+        <%= form.submit "Search", :class => "register-btn"%>
+      </div>
+    <% end %>
+  </div>
+    <%= render partial: 'all_posts' %>
+</div>
